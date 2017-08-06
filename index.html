@@ -20,6 +20,7 @@
         <script type="text/javascript" src="js/zone.js"></script>
 
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/lazysizes.min.js" async=""></script>
         <script>
             function getURLparams()
             {
@@ -154,6 +155,18 @@
 
             });
         </script>
+        <style>
+          .blur-up {
+            -webkit-filter: blur(5px);
+            filter: blur(5px);
+            transition: filter 400ms, -webkit-filter 400ms;
+          }
+
+          .blur-up.lazyloaded {
+            -webkit-filter: blur(0);
+            filter: blur(0);
+          }
+        </style>
     </head>
     <body>
         <header class="page-head">
@@ -161,7 +174,22 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">
-                            <img class="brand-logo" src="images/seite37-logo.png" height="56" width="280">
+                            <img 
+                              data-sizes="auto"
+                              data-src="images/seite37-logo.png"
+                              data-srcset="images/seite37-logo-150.png 150w, images/seite37-logo-300.png 300w,
+                                           images/seite37-logo.png 600w"
+                              class="brand-logo lazyload" />
+<!--                             <img
+                              data-sizes="auto"
+                              src="images/hdr-oetzerberg-view-feature-320.jpg"
+                              data-srcset="images/hdr-oetzerberg-view-feature-lq.jpg 20w,
+                                           images/hdr-oetzerberg-view-feature-320.jpg 320w,
+                                           images/hdr-oetzerberg-view-feature-768.jpg 768w,
+                                           images/hdr-oetzerberg-view-feature-1024.jpg 1024w,
+                                           images/hdr-oetzerberg-view-feature-1920.jpg 1920w"
+                              alt="Beautiful HDR Image of Ötztal Valley"
+                              class="brand-logo lazyload blur-up"> -->
                         </a>
                     </div>
                     <div class="info">
